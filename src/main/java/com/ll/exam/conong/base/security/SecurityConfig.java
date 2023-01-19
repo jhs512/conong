@@ -13,7 +13,15 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-
+        http
+                .httpBasic().disable()
+                .logout(logout -> logout
+                        .logoutUrl("/account/logout")
+                )
+                .oauth2Login(
+                        oauth2Login -> oauth2Login
+                                .loginPage("/account/login")
+                );
 
         return http.build();
     }
