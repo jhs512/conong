@@ -33,3 +33,8 @@ spring:
     url: jdbc:mariadb://127.0.0.1:3306/conong__dev?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul
     username: root
     password:
+logging:
+  level:
+    root: info
+    com.ll.exam.conong: debug
+    org.hibernate.type.descriptor.sql: trace
