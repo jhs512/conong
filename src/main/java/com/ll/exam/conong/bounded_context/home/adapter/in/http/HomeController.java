@@ -11,6 +11,11 @@ public class HomeController {
         return "usr/home/main";
     }
 
+    @GetMapping("/home/about")
+    public String showAbout() {
+        return "usr/home/about";
+    }
+
     @GetMapping("/version")
     @ResponseBody
     public int showVersion() {
