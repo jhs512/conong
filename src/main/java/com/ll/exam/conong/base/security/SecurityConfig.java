@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.access.AccessDeniedHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -15,6 +16,10 @@ import org.springframework.security.web.SecurityFilterChain;
 @RequiredArgsConstructor
 @Slf4j
 public class SecurityConfig {
+    public AccessDeniedHandler accessDeniedHandler() {
+        return (request, response, accessDeniedException) -> response.getWriter().append("Access Denied");
+    }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
@@ -22,6 +27,10 @@ public class SecurityConfig {
                 .logout(logout -> logout
                         .logoutUrl("/account/logout")
                 )
+                .exceptionHandling(exceptionHandling ->
+                        exceptionHandling.accessDeniedHandler(accessDeniedHandler())
+                )
+
                 .oauth2Login(
                         oauth2Login -> oauth2Login
                                 .loginPage("/account/login")
