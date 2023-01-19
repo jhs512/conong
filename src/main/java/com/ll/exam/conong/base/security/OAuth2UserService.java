@@ -1,5 +1,7 @@
-package com.ll.exam.conong.bounded_context.account.adapter.in.http;
+package com.ll.exam.conong.base.security;
 
+import com.ll.exam.conong.bounded_context.account.domain.service.AccountService;
+import com.ll.exam.conong.bounded_context.member.domain.model.Member;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
@@ -16,6 +18,9 @@ import java.util.Map;
 @RequiredArgsConstructor
 @Slf4j
 public class OAuth2UserService extends DefaultOAuth2UserService {
+    private final AccountService accountService;
+
+    // 카카오톡 로그인이 성공할 때 마다 이 함수가 실행된다.
     @Override
     @Transactional
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
@@ -54,6 +59,7 @@ public class OAuth2UserService extends DefaultOAuth2UserService {
         log.debug("profileImgUrl: {}", profileImgUrl);
 
         // TODO: 회원가입, 로그인 처리
+        Member member = accountService.whenSocialLogin(oauthType, username, email, nickname, profileImgUrl);
 
         return null;
     }
