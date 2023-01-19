@@ -61,6 +61,6 @@ public class OAuth2UserService extends DefaultOAuth2UserService {
         // TODO: 회원가입, 로그인 처리
         Member member = accountService.whenSocialLogin(oauthType, username, email, nickname, profileImgUrl);
 
-        return null;
+        return User.from(member);
     }
 }

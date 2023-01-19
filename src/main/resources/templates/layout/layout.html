@@ -29,7 +29,12 @@
         <li>
             <a href="/oauth2/authorization/kakao" class="flex p-2">카카오톡 로그인</a>
         </li>
+        <li>
+            <a href="/account/logout" class="flex p-2">로그아웃</a>
+        </li>
     </ul>
+
+    [[${#authentication.principal.username}]]
 </header>
 
 <main layout:fragment="main"></main>
