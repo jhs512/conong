@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="/resource/common/common.css">
 
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script defer src="/resource/common/common.js"></script>
 </head>
 <body>
@@ -30,11 +31,15 @@
             <a href="/oauth2/authorization/kakao" class="flex p-2">카카오톡 로그인</a>
         </li>
         <li>
-            <a href="/account/logout" class="flex p-2">로그아웃</a>
+            <a href="javascript:;" onclick="$(this).next().submit();" class="flex p-2">로그아웃</a>
+
+            <form method="POST" th:action="@{/account/logout}" hidden></form>
         </li>
     </ul>
 
-    [[${#authentication.principal.username}]]
+    <div sec:authorize="isAuthenticated()">
+        [[${#authentication.principal.username}]]
+    </div>
 </header>
 
 <main layout:fragment="main"></main>
