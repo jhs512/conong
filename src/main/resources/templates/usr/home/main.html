@@ -11,8 +11,38 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.47.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+    <style>
+        /* 폰트 로딩 */
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        html {
+            font-family: "GmarketSansMedium";
+            text-underline-position: under;
+        }
+    </style>
+
     <div class="bg-red-500 p-[50px] flex justify-center">
-        <button class="btn btn-sm btn-primary">Button</button>
+        <button class="btn btn-sm btn-primary">
+            <i class="fa-solid fa-heart"></i>
+            &nbsp;
+            좋아요
+        </button>
+    </div>
+
+    <div>
+        <div>
+            동해물과 백두산이 마르고 닳도록
+        </div>
+        <div class="underline">
+            동해물과 백두산이 마르고 닳도록
+        </div>
     </div>
 </body>
 </html>
