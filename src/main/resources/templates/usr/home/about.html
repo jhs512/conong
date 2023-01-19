@@ -1,46 +1,15 @@
-<!doctype html>
-<html lang="ko">
+<!DOCTYPE html>
+<html layout:decorate="~{layout/layout.html}">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>서비스 소개 - 코농</title>
+    <title>서비스 소개</title>
 </head>
+
 <body>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.47.0/dist/full.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<main layout:fragment="main">
+    우리 서비스는 좋은 서비스 입니다.
+</main>
 
-    <style>
-        /* 폰트 로딩 */
-        @font-face {
-            font-family: 'GmarketSansMedium';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        html {
-            font-family: "GmarketSansMedium";
-            text-underline-position: under;
-        }
-    </style>
-
-    <header>
-        <ul class="flex">
-            <li>
-                <a href="/" class="flex p-2">홈</a>
-            </li>
-            <li>
-                <a href="/home/about" class="flex p-2">소개</a>
-            </li>
-        </ul>
-    </header>
-
-    <div>
-        우리 서비스는 좋은 서비스 입니다.
-    </div>
 </body>
 </html>
