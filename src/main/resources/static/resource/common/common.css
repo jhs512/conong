@@ -10,3 +10,11 @@ html > body {
     font-family: "GmarketSansMedium";
     text-underline-position: under;
 }
+
+.icon-text > :is(
+    .fa-solid.fa-circle-info,
+    .fa-solid.fa-arrow-right-from-bracket
+) {
+    margin-top: 2px;
+}
+

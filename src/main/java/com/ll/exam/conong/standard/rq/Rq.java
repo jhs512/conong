@@ -19,8 +19,8 @@ import java.util.Date;
 
 
 @Component
-@Slf4j
 @RequestScope
+@Slf4j
 public class Rq {
     private final HttpServletRequest req;
     private final HttpServletResponse resp;
