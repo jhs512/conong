@@ -14,11 +14,16 @@ import java.util.Optional;
 public class AccountService {
     private final MemberService memberService;
 
+    @Transactional
     public Member whenSocialLogin(String oauthType, String username, String email, String nickname, String profileImgUrl) {
         Optional<Member> memberByUsername = memberService.getMemberByUsername(username);
 
-        if ( memberByUsername.isPresent() ) {
-            return memberByUsername.get();
+        if (memberByUsername.isPresent()) {
+            Member member = memberByUsername.get();
+
+            member.updateWhenSocialLogin(nickname, profileImgUrl);
+
+            return member;
         }
 
         return joinWithSocialLogin(oauthType, username, email, nickname, profileImgUrl);

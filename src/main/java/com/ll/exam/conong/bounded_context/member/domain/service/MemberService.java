@@ -18,6 +18,7 @@ public class MemberService {
         return memberRepository.findMemberByUsername(username);
     }
 
+    @Transactional
     public Member join(String oauthType, String username, String email, String nickname, String profileImgUrl) {
         Member member = Member.builder()
                 .oauthType(oauthType)
