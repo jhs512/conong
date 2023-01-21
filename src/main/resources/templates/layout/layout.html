@@ -19,28 +19,62 @@
 </head>
 <body>
 
-<header>
-    <ul class="flex">
-        <li>
-            <a href="/" class="flex p-2">홈</a>
-        </li>
-        <li>
-            <a href="/home/about" class="flex p-2">소개</a>
-        </li>
-        <li sec:authorize="!isAuthenticated()">
-            <a href="/account/login" class="flex p-2">로그인</a>
-        </li>
-        <li sec:authorize="isAuthenticated()">
-            <a href="javascript:;" onclick="$(this).next().submit();" class="flex p-2">로그아웃</a>
-
-            <form method="POST" th:action="@{/account/logout}" hidden></form>
-        </li>
-    </ul>
-
-    <div sec:authorize="isAuthenticated()">
-        [[${#authentication.principal.username}]]
+<!--
+<header class="fixed z-40 top-0 left-0 w-full bg-white border-b-[1px] border-b-[color:#efefef] h-[35px] md:h-[50px]">
+    <div class="container mx-auto h-full flex items-center px-2">
     </div>
 </header>
+-->
+
+<header class="fixed z-40 top-0 left-0 w-full bg-white border-b-[1px] border-b-[color:#efefef] h-[35px] md:h-[50px]">
+    <div class="container mx-auto h-full flex items-center px-2">
+        <a href="/" class="logo flex font-bold mr-auto">
+            <span class="text-[#1E9EFE]">CONO.GG</span>
+            <span class="ml-2 hidden lg:block">노래 녹음/공유 서비스</span>
+        </a>
+
+        <div class="flex gap-4">
+            <a href="/voice/upload" class="inline-flex">
+                <i class="fa-solid fa-upload"></i>
+                <span class="ml-1 hidden lg:block">
+                    업로드
+                </span>
+            </a>
+
+            <a href="/voice/myList" class="inline-flex">
+                <i class="fa-solid fa-clipboard-list"></i>
+                <span class="ml-1 hidden lg:block">
+                    내 기록
+                </span>
+            </a>
+
+            <a href="/member/profile" class="inline-flex" sec:authorize="isAuthenticated()">
+                <i class="fa-solid fa-user"></i>
+
+                <span class="ml-1 hidden lg:block">
+                    장희성
+                </span>
+            </a>
+
+            <a href="/account/login" class="inline-flex" sec:authorize="!isAuthenticated()">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <span class="ml-1 hidden lg:block">
+                    로그인
+                </span>
+            </a>
+
+            <a href="javascript:;" onclick="$(this).next().submit();" class="inline-flex" sec:authorize="isAuthenticated()">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span class="ml-1 hidden lg:block">
+                    로그아웃
+                </span>
+            </a>
+            <form method="POST" th:action="@{/account/logout}" hidden></form>
+        </div>
+    </div>
+</header>
+
+<div class="h-[35px] md:h-[50px]"></div>
 
 <main layout:fragment="main"></main>
 
