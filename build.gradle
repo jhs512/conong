@@ -39,6 +39,12 @@ dependencies {
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
+
+    implementation 'com.drewnoakes:metadata-extractor:2.18.0'
+    implementation 'ws.schild:jave-all-deps:3.3.1'
+    implementation 'org.apache.tika:tika-core:2.6.0'
+    implementation 'com.mpatric:mp3agic:0.9.1'
+    implementation 'org.gagravarr:vorbis-java-core:0.8'
 }
 
 tasks.named('test') {

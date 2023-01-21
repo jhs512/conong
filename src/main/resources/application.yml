@@ -2,6 +2,7 @@ server:
   port: 8010
 spring:
   profiles:
+    active: dev
     include:
       - security
   thymeleaf:
@@ -47,3 +48,13 @@ logging:
     root: info
     com.ll.exam.conong: debug
     org.hibernate.type.descriptor.sql: trace
+custom:
+  site:
+    name: CONO.GG
+    baseUrl: http://localhost:8010
+  genFile:
+    dirName: gen
+    dirParentPath: c:/temp/conong
+  deploy:
+    tomcat:
+      version: 1
