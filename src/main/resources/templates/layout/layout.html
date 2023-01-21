@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html data-theme="light" lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -7,17 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title layout:title-pattern="$LAYOUT_TITLE | $CONTENT_TITLE" th:text="코농"></title>
 
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.47.0/dist/full.css" rel="stylesheet" type="text/css"/>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
-    <link rel="stylesheet" href="/resource/common/common.css">
-
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script defer src="/resource/common/common.js"></script>
 </head>
-<body>
+<body class="min-h-screen flex flex-col pt-[35px] md:pt-[50px]">
+
+<link href="https://cdn.jsdelivr.net/npm/daisyui@2.47.0/dist/full.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="/resource/common/common.css">
 
 <header class="fixed z-40 top-0 left-0 w-full bg-white border-b-[1px] border-b-[color:#efefef] h-[35px] md:h-[50px]">
     <div class="container mx-auto h-full flex items-center px-2">
@@ -67,9 +67,9 @@
     </div>
 </header>
 
-<div class="h-[35px] md:h-[50px]"></div>
-
-<main layout:fragment="main"></main>
+<div class="flex-grow flex flex-col py-5">
+    <main layout:fragment="main" class="flex-grow flex flex-col"></main>
+</div>
 
 </body>
 </html>
